@@ -1,79 +1,129 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using BibliotecaMVC.Models;
+﻿using BibliotecaMVC.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BibliotecaMVC.Controllers
 {
     public class AutoresController : Controller
     {
+        private static List<Autor> _autores = new List<Autor>
+        {
+        new Autor {
+            Id = 1,
+            Nombre = "Gabriel García Márquez",
+            Nacionalidad = "Colombiana",
+            FechaNacimiento = new DateTime(1927, 3, 6) },
+        new Autor {
+            Id = 2,
+            Nombre = "Isabel Allende",
+            Nacionalidad = "Chilena",
+            FechaNacimiento = new DateTime(1942, 8, 2) },
+        new Autor {
+            Id = 3,
+            Nombre = "Mario Vargas Llosa",
+            Nacionalidad = "Peruana",
+            FechaNacimiento = new DateTime(1936, 3, 28) }
+        };
         public IActionResult Index()
         {
-            List<Autor> Autores = new List<Autor>()
+            return View(_autores);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var autor = _autores.FirstOrDefault(x => x.Id == id);
+
+            if (autor == null)
             {
-                new Autor
-                {
-                    ID = 1,
-                    Nombre = "Gabriel",
-                    Apellido = "García Márquez",
-                    Nacionalidad = "Colombiana",
-                    FechaNacimiento = new DateTime(1927, 3, 6),
-                    Activo = false
-                },
-
-                new Autor
-                {
-                    ID = 2,
-                    Nombre = "Isabel",
-                    Apellido = "Allende",
-                    Nacionalidad = "Chilena",
-                    FechaNacimiento = new DateTime(1942, 8, 2),
-                    Activo = true
-                },
-
-                new Autor
-                {
-                    ID = 3,
-                    Nombre = "Mario",
-                    Apellido = "Vargas Llosa",
-                    Nacionalidad = "Peruana",
-                    FechaNacimiento = new DateTime(1936, 3, 28),
-                    Activo = true
-                },
-
-                new Autor
-                {
-                    ID = 4,
-                    Nombre = "Jorge Luis",
-                    Apellido = "Borges",
-                    Nacionalidad = "Argentina",
-                    FechaNacimiento = new DateTime(1899, 8, 24),
-                    Activo = false
-                },
-
-                new Autor
-                {
-                    ID = 5,
-                    Nombre = "Mark",
-                    Apellido = "Batterson",
-                    Nacionalidad = "Estadounidense",
-                    FechaNacimiento = new DateTime(1969, 11, 5),
-                    Activo = true
-                },
-
-                new Autor
-                {
-                    ID = 6,
-                    Nombre = "Laura",
-                    Apellido = "Esquivel",
-                    Nacionalidad = "Mexicana",
-                    FechaNacimiento = new DateTime(1950, 9, 30),
-                    Activo = true
-                },
-            };
-
-            ViewBag.Nombre = "Juan Lara";
-            ViewBag.Autores = Autores;
-
+                return NotFound();
+            }
+            return View(autor);
+        }
+        public IActionResult Create()
+        {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Autor autor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(autor);
+            }
+            if (_autores.Any())
+            {
+                autor.Id = _autores.Max(x => x.Id) + 1;
+            }
+            else
+            {
+                autor.Id = 1;
+            }
+            _autores.Add(autor);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var autor = _autores.FirstOrDefault(x => x.Id == id);
+
+            if (autor == null)
+            {
+                return NotFound();
+            }
+
+            return View(autor);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Autor autor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(autor);
+            }
+
+            var autorExistente = _autores.FirstOrDefault(x => x.Id == id);
+
+            if (autorExistente == null)
+            {
+                return NotFound();
+            }
+
+            autorExistente.Nombre = autor.Nombre;
+            autorExistente.Nacionalidad = autor.Nacionalidad;
+            autorExistente.FechaNacimiento = autor.FechaNacimiento;
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var autor = _autores.FirstOrDefault(x => x.Id == id);
+
+            if (autor == null)
+            {
+                return NotFound();
+            }
+
+            return View(autor);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var autor = _autores.FirstOrDefault(x => x.Id == id);
+
+            if (autor == null)
+            {
+                return NotFound();
+            }
+
+            _autores.Remove(autor);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

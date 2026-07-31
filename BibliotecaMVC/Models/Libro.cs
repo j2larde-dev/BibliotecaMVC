@@ -1,13 +1,30 @@
-﻿namespace BibliotecaMVC.Models
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace BibliotecaMVC.Models
 {
     public class Libro
     {
         public int ID { get; set; }
-        public string Titulo { get; set; } = string.Empty;
-        public string Autor { get; set; } = string.Empty;
-        public string Categoria { get; set; } = string.Empty;
-        public decimal Precio { get; set; }
-        public bool Disponible { get; set; }
-    }
 
+        [Required]
+        [StringLength(150)]
+        public string Titulo { get; set; } = string.Empty;
+
+        [Required]
+        [StringLength(100)]
+        public string Autor { get; set; } = string.Empty;
+
+        [StringLength(50)]
+        public string Categoria { get; set; } = string.Empty;
+
+        [Range(0.01, 999.99)]
+        public decimal Precio { get; set; }
+
+        public bool Disponible { get; set; }
+
+        [Required]
+        [StringLength(200)]
+        public string Imagen { get; set; } = string.Empty;
+    }
 }
