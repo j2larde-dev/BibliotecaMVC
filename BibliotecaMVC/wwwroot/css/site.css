@@ -46,3 +46,253 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/*===========================
+        VARIABLES
+===========================*/
+:root {
+    --color-principal: #0d6efd;
+    --color-secundario: #f4f6f9;
+    --color-texto: #333333;
+    --color-blanco: #FFFFFF;
+}
+
+.about-header{
+    background: var(--color-principal);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 40px;
+}
+
+.about-container {
+    display: flex;
+    gap: 25px;
+    padding: 40px;
+}
+
+.about-content {
+    flex: 3;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.1);
+    transition: 0.3s;
+}
+
+.about-content:hover {
+    transform: translateY(-5px);
+}
+
+.about-info {
+    flex: 1;
+    background: #eef5ff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.team-section {
+    padding: 20px 40px;
+}
+
+.team-section img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.team-section figcaption {
+    text-align: center;
+    margin-top: 10px;
+    color: gray;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+}
+
+/* HERO SECTION */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('https://picsum.photos/1200/500') no-repeat center center;
+    background-size: cover;
+    height: 60vh;
+}
+
+/* Cards de Servicios */
+.servicio-card {
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+    .servicio-card:hover {
+        background: #eef5ff;
+        transform: translateY(-5px);
+        cursor: pointer;
+    }
+
+/* Cards de Categorías Populares */
+.categoria-card {
+    transition: 0.3s;
+}
+
+    .categoria-card:hover {
+        background: var(--color-principal);
+        color: white;
+        transform: translateY(-5px);
+        cursor: pointer;
+    }
+
+        .categoria-card:hover h4 {
+            color: white;
+        }
+
+/* ============================
+   ABOUT PAGE STYLES
+   ============================ */
+
+.about-header {
+    background: var(--color-principal);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 40px;
+}
+
+.about-container {
+    display: flex;
+    gap: 25px;
+    padding: 40px;
+}
+
+.about-content {
+    flex: 3;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.1);
+    transition: 0.3s;
+}
+
+    .about-content:hover {
+        transform: translateY(-5px);
+    }
+
+.about-info {
+    flex: 1;
+    background: #eef5ff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.team-section {
+    padding: 20px 40px;
+}
+
+    .team-section img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .team-section figcaption {
+        text-align: center;
+        margin-top: 10px;
+        color: gray;
+        font-style: italic;
+    }
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+}
+
+/* Sección informativa de Biblioteca en Home */
+.about-library, .about-library h2 {
+    margin-top: 40px;
+}
+
+.about-library {
+    background: var(--color-secundario);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.1);
+}
+
+.about-list {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+    .about-list li {
+        margin-bottom: 8px;
+        color: var(--color-texto);
+    }
+
+/* ============================
+   DISEÑO RESPONSIVO GENERAL
+   ============================ */
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+
+    /* Hero Section */
+    .hero-section,
+    .container.mt-5 .row.align-items-center {
+        text-align: center;
+    }
+
+    .container.mt-5 img {
+        margin-top: 20px;
+        width: 90%;
+    }
+
+    /* Cards de Servicios */
+    .servicio-card {
+        padding: 20px;
+    }
+
+        .servicio-card h2 {
+            font-size: 1.8rem;
+        }
+
+    /* Categorías Populares */
+    .categoria-card {
+        padding: 20px;
+    }
+
+    /* About Page */
+    .about-header {
+        padding: 25px;
+    }
+
+    .about-content,
+    .about-info {
+        padding: 20px;
+    }
+
+    .about-library {
+        padding: 20px;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+
+    .servicio-card h5,
+    .categoria-card h4 {
+        font-size: 1.1rem;
+    }
+
+    .servicio-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+.carousel-item img {
+    transition: 0.5s ease-in-out;
+}
