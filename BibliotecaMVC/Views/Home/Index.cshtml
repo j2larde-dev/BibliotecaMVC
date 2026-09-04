@@ -21,81 +21,134 @@
     </div>
 </div>
 
-@* ============================
-   SERVICIOS CON FLEXBOX
-   ============================ *@
-<div class="container mt-5">
-    <h2 class="mb-4 text-center">Servicios de la Biblioteca</h2>
-
-    <div class="servicios-flex">
-
-        <!-- Servicio Libros -->
-        <div class="servicio-item">
-            <i class="bi bi-book-half display-4 text-primary"></i>
-            <h5 class="mt-3">Libros Disponibles</h5>
-            <h2 class="text-primary fw-bold">500+</h2>
-            <p>Accede a nuestro catálogo digital con cientos de libros disponibles para consulta.</p>
-        </div>
-
-        <!-- Servicio Autores -->
-        <div class="servicio-item">
-            <i class="bi bi-people-fill display-4 text-primary"></i>
-            <h5 class="mt-3">Autores Registrados</h5>
-            <h2 class="text-primary fw-bold">120+</h2>
-            <p>Explora información detallada de autores nacionales e internacionales.</p>
-        </div>
-
-        <!-- Servicio Categorías -->
-        <div class="servicio-item">
-            <i class="bi bi-journal-text display-4 text-primary"></i>
-            <h5 class="mt-3">Categorías Literarias</h5>
-            <h2 class="text-primary fw-bold">25+</h2>
-            <p>Encuentra libros organizados por géneros y áreas de interés académico.</p>
-        </div>
-
+@* -----------------------------------
+   SERVICIOS
+   -------------------------------- *@
+<!--SIN RESPONSIVE-->
+<div class="section">
+    <h2 class="text-center mb-4">1. Sin Responsive</h2>
+    <div class="contenedor sin-responsive">
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(1) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(2) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(3) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
     </div>
 </div>
 
+<!--MEDIA QUERIES-->
+<div class="section">
+    <h2 class="text-center mb-4">2. Responsive con Media Query</h2>
+    <div class="contenedor media-query">
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(1) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(2) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(3) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+    </div>
+</div>
+
+<!--BOOTSTRAP-->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">3. Responsive con Bootstrap</h2>
+    <div class="row">
+        <!--Servicio 1-->
+        <div class="col-12 col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <img src="https://picsum.photos/200/100" alt="Imagen" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">(1) Some quick example text to build on the card title and ma</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Servicio 2-->
+        <div class="col-12 col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <img src="https://picsum.photos/200/100" alt="Imagen" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">(2) Some quick example text to build on the card title and ma</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Servicio 3-->
+        <div class="col-12 col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <img src="https://picsum.photos/200/100" alt="Imagen" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">(3) Some quick example text to build on the card title and ma</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--CSS GRID-->
+<div class="section">
+    <h2 class="text-center mb-4">4. Responsive con CSS GRID</h2>
+    <div class="contenedor grid-layout">
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(1) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(2) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(3) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+    </div>
+</div>
+
+<!--FLEXBOX-->
+<div class="section">
+    <h2 class="text-center mb-4">4. Responsive con FLEXBOX</h2>
+    <div class="contenedor flex-layout">
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(1) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(2) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+        @await Html.PartialAsync("_ServiceCard", new BibliotecaMVC.Models.ServiceCard { ImageUrl = "https://picsum.photos/200/100", Text = "(3) aqui va el texto del bloque de servicios oque se mostrata debena de la imaegen aleatoria de la mibliiteca MVC" })
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">NUESTROS SERVICIOS</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h2 class="text-primary">500+</h2>
+            <p>Libros disponibles</p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="text-primary">120+</h2>
+            <p>Autores Registrados</p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="text-primary">25+</h2>
+            <p>Categorías literarias</p>
+        </div>
+    </div>
+</div>
+
+
 @* ============================
-   CATEGORÍAS (CSS GRID)
+   CATEGORÍAS
    ============================ *@
 <div class="container mt-5">
     <h2 class="mb-4 text-center">Categorías Populares</h2>
 
-    <div class="categorias-grid">
-
-        <div class="categoria-item">
-            <h4>Novela</h4>
+    <div class="row text-center">
+        <div class="col-md-3 mb-3">
+            <div class="p-4 bg-light rounded shadow-sm categoria-card">
+                <h4 class="text-primary">Novela</h4>
+            </div>
         </div>
 
-        <div class="categoria-item">
-            <h4>Tecnología</h4>
+        <div class="col-md-3 mb-3">
+            <div class="p-4 bg-light rounded shadow-sm categoria-card">
+                <h4 class="text-primary">Tecnología</h4>
+            </div>
         </div>
 
-        <div class="categoria-item">
-            <h4>Historia</h4>
+        <div class="col-md-3 mb-3">
+            <div class="p-4 bg-light rounded shadow-sm categoria-card">
+                <h4 class="text-primary">Historia</h4>
+            </div>
         </div>
 
-        <div class="categoria-item">
-            <h4>Ciencia</h4>
+        <div class="col-md-3 mb-3">
+            <div class="p-4 bg-light rounded shadow-sm categoria-card">
+                <h4 class="text-primary">Ciencia</h4>
+            </div>
         </div>
-
-        <div class="categoria-item">
-            <h4>Educación</h4>
-        </div>
-
-        <div class="categoria-item">
-            <h4>Psicología</h4>
-        </div>
-
-        <div class="categoria-item">
-            <h4>Arte</h4>
-        </div>
-
-        <div class="categoria-item">
-            <h4>Filosofía</h4>
-        </div>
-
     </div>
 </div>
 

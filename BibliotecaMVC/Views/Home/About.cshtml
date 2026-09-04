@@ -31,23 +31,19 @@
         </p>
     </article>
 
-    @* INFORMACIÓN LATERAL — REEMPLAZADA POR COMPONENTES *@
+    @* INFORMACIÓN LATERAL *@
     <aside class="about-info">
+        <h3>Misión</h3>
+        <p>
+            Proveer acceso organizado y eficiente a recursos bibliográficos digitales, fomentando
+            el aprendizaje continuo y la investigación académica.
+        </p>
 
-        @await Html.PartialAsync("_InfoCard", new BibliotecaMVC.Models.InfoCard
-        {
-            IconClass = "bi bi-bullseye",
-            Title = "Misión",
-            Text = "Proveer acceso organizado y eficiente a recursos bibliográficos digitales, fomentando el aprendizaje continuo y la investigación académica."
-        })
-
-        @await Html.PartialAsync("_InfoCard", new BibliotecaMVC.Models.InfoCard
-        {
-            IconClass = "bi bi-eye",
-            Title = "Visión",
-            Text = "Convertirnos en una plataforma virtual de referencia para estudiantes, docentes y profesionales que buscan información confiable y accesible."
-        })
-
+        <h3>Visión</h3>
+        <p>
+            Convertirnos en una plataforma virtual de referencia para estudiantes, docentes y
+            profesionales que buscan información confiable y accesible.
+        </p>
     </aside>
 
 </section>
@@ -72,154 +68,11 @@
 </section>
 
 @* ============================
-   SECCIÓN DE AUTORES — NUEVO COMPONENTE
+   SECCIÓN DE IMAGEN
    ============================ *@
 <section class="team-section">
-    <div class="row">
-
-        <div class="col-md-4 mb-3">
-            @await Html.PartialAsync("_AuthorCard", new BibliotecaMVC.Models.AuthorCard
-            {
-                ImageUrl = "https://picsum.photos/300/300",
-                Name = "Gabriel García Márquez",
-                Description = "Autor destacado de literatura latinoamericana."
-            })
-        </div>
-
-        <div class="col-md-4 mb-3">
-            @await Html.PartialAsync("_AuthorCard", new BibliotecaMVC.Models.AuthorCard
-            {
-                ImageUrl = "https://picsum.photos/301/300",
-                Name = "Isabel Allende",
-                Description = "Reconocida escritora de novelas contemporáneas."
-            })
-        </div>
-
-        <div class="col-md-4 mb-3">
-            @await Html.PartialAsync("_AuthorCard", new BibliotecaMVC.Models.AuthorCard
-            {
-                ImageUrl = "https://picsum.photos/302/300",
-                Name = "Stephen King",
-                Description = "Autor prolífico de novelas de suspenso y terror."
-            })
-        </div>
-
-    </div>
+    <figure>
+        <img src="https://picsum.photos/900/350" alt="Biblioteca">
+        <figcaption>Biblioteca virtual desarrollada con ASP.NET Core MVC</figcaption>
+    </figure>
 </section>
-
-<div class="row mt-4">
-    <div class="col-md-3 mb-3">
-        @await Html.PartialAsync("_CategoryCard", new BibliotecaMVC.Models.CategoryCard
-        {
-            Name = "Tecnología"
-        })
-    </div>
-
-    <div class="col-md-3 mb-3">
-        @await Html.PartialAsync("_CategoryCard", new BibliotecaMVC.Models.CategoryCard
-        {
-            Name = "Historia"
-        })
-    </div>
-
-    <div class="col-md-3 mb-3">
-        @await Html.PartialAsync("_CategoryCard", new BibliotecaMVC.Models.CategoryCard
-        {
-            Name = "Ciencia"
-        })
-    </div>
-
-    <div class="col-md-3 mb-3">
-        @await Html.PartialAsync("_CategoryCard", new BibliotecaMVC.Models.CategoryCard
-        {
-            Name = "Novela"
-        })
-    </div>
-</div>
-
-<div class="row mt-4">
-
-    <div class="col-md-4 mb-3">
-        @await Html.PartialAsync("_FeatureCard", new BibliotecaMVC.Models.FeatureCard
-        {
-            IconClass = "bi bi-cloud-arrow-down",
-            Title = "Acceso Digital",
-            Description = "Consulta libros y recursos desde cualquier dispositivo."
-        })
-    </div>
-
-    <div class="col-md-4 mb-3">
-        @await Html.PartialAsync("_FeatureCard", new BibliotecaMVC.Models.FeatureCard
-        {
-            IconClass = "bi bi-search",
-            Title = "Búsqueda Avanzada",
-            Description = "Encuentra libros, autores y categorías rápidamente."
-        })
-    </div>
-
-    <div class="col-md-4 mb-3">
-        @await Html.PartialAsync("_FeatureCard", new BibliotecaMVC.Models.FeatureCard
-        {
-            IconClass = "bi bi-shield-check",
-            Title = "Información Confiable",
-            Description = "Contenido verificado y organizado para estudio académico."
-        })
-    </div>
-
-</div>
-
-<div class="row mt-4">
-
-    <div class="col-md-4 mb-3">
-        @await Html.PartialAsync("_ServiceCardAdvanced", new BibliotecaMVC.Models.ServiceCardAdvanced
-        {
-            IconClass = "bi bi-book-half",
-            Title = "Libros Disponibles",
-            Value = "500+",
-            Description = "Accede a nuestro catálogo digital con cientos de libros."
-        })
-    </div>
-
-    <div class="col-md-4 mb-3">
-        @await Html.PartialAsync("_ServiceCardAdvanced", new BibliotecaMVC.Models.ServiceCardAdvanced
-        {
-            IconClass = "bi bi-people-fill",
-            Title = "Autores Registrados",
-            Value = "120+",
-            Description = "Explora información detallada de autores nacionales e internacionales."
-        })
-    </div>
-
-    <div class="col-md-4 mb-3">
-        @await Html.PartialAsync("_ServiceCardAdvanced", new BibliotecaMVC.Models.ServiceCardAdvanced
-        {
-            IconClass = "bi bi-journal-text",
-            Title = "Categorías Literarias",
-            Value = "25+",
-            Description = "Encuentra libros organizados por géneros y áreas de estudio."
-        })
-    </div>
-
-</div>
-
-
-@await Html.PartialAsync("_InfoCard", new BibliotecaMVC.Models.InfoCard
-{
-    IconClass = "bi bi-bullseye",
-    Title = "Misión",
-    Text = "Proveer acceso organizado y eficiente a recursos bibliográficos digitales."
-})
-
-@await Html.PartialAsync("_InfoCard", new BibliotecaMVC.Models.InfoCard
-{
-    IconClass = "bi bi-eye",
-    Title = "Visión",
-    Text = "Convertirnos en una plataforma virtual de referencia."
-})
-
-@await Html.PartialAsync("_AuthorCard", new BibliotecaMVC.Models.AuthorCard
-{
-    ImageUrl = "https://picsum.photos/300/300",
-    Name = "Gabriel García Márquez",
-    Description = "Autor destacado de literatura latinoamericana."
-})

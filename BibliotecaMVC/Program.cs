@@ -1,7 +1,17 @@
+using BibliotecaMVC.Repositories;
+using BibliotecaMVC.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Servicio del módulo Autores (Scoped)
+// builder.Services.AddScoped<IAutorService, AutorService>();           // Implementación original
+builder.Services.AddScoped<IAutorService, AutorServiceAlternativo>();   // Implementación alternativa (Reto)
+
+// Servicio del módulo Libros (Singleton)
+builder.Services.AddSingleton<IRepositorioLibro, RepositorioEnMemoria>();
 
 var app = builder.Build();
 
@@ -24,6 +34,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();
