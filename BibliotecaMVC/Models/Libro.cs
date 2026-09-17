@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace BibliotecaMVC.Models
 {
@@ -18,13 +19,9 @@ namespace BibliotecaMVC.Models
         [StringLength(50)]
         public string Categoria { get; set; } = string.Empty;
 
-        [Range(0.01, 999.99)]
+        [Precision(10, 2)]
         public decimal Precio { get; set; }
 
         public bool Disponible { get; set; }
-
-        [Required]
-        [StringLength(200)]
-        public string Imagen { get; set; } = string.Empty;
     }
 }

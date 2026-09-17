@@ -1,8 +1,76 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1 class="display-4">
+                BibliotecaMVC
+            </h1>
+            <p class="lead">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <a asp-controller="Home" asp-action="About" class="btn btn-primary">Conocer más</a>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="https://picsum.photos/500/350" class="img-fluid rounded shadow" alt="Biblioteca">
+        </div>
+    </div>
+</div>
 
-<div class="text-center">
-    <h1>Sistema de Gestion de Biblioteca</h1>
-    <p>Bienvenidos al Sistema desarrollado con ASP.Net Core MVC.</p>
+<div class="container mt-5">
+    <h2>Servicio de la Biblioteca</h2>
+    <div class="row">
+        <!--Servicio 1-->
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <img src="https://picsum.photos/200/100" class="card-img-top" alt="Imagen">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make.</p>
+                </div>
+            </div>
+        </div>
+        <!--Servicio 2-->
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <img src="https://picsum.photos/200/100" class="card-img-top" alt="Imagen">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make.</p>
+                </div>
+            </div>
+        </div>
+        <!--Servicio 3-->
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm">
+                <img src="https://picsum.photos/200/100" class="card-img-top" alt="Imagen">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h2 class="text-primary">500+</h2>
+            <p>Libros disponibles</p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="text-primary">120+</h2>
+            <p>Autores Registrados</p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="text-primary">25+</h2>
+            <p>Categorías literarias</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="bg-primary text-white rounded p-5 text-center">
+        <h2>Explora nuestra Biblioteca Virtual</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <a asp-controller="Home" asp-action="About" class="btn btn-outline-light">Acerca de la Biblioteca</a>
+    </div>
 </div>

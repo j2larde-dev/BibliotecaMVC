@@ -1,40 +1,123 @@
+/* ============================================================
+   1. AJUSTES BASE DEL HTML Y BODY
+   ============================================================ */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* ============================================================
+   2. ESTILOS DE FOCUS (Bootstrap mejorado)
+   ============================================================ */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+/* ============================================================
+   3. PLACEHOLDERS EN FORM-FLOATING
+   ============================================================ */
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
 }
 
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}
+
+/* ============================================================
+   4. VARIABLES CSS (PALETA INSTITUCIONAL)
+   ============================================================ */
+:root {
+    --color-principal: #0d6efd; /* Azul institucional */
+    --color-secundario: #f4f6f9; /* Gris claro */
+    --color-texto: #333333; /* Texto principal */
+    --color-blanco: #FFFFFF;
+    --color-exito: #198754; /* Verde éxito */
+    --color-peligro: #dc3545; /* Rojo error */
+    --color-info: #0dcaf0; /* Celeste informativo */
+}
+
+/* ============================================================
+   5. TIPOGRAFÍA Y ENCABEZADOS
+   ============================================================ */
+h2 {
+    color: var(--color-principal);
+    font-weight: 700;
+}
+
+/* ============================================================
+   6. TABLAS (LISTADO DE LIBROS)
+   ============================================================ */
+.table th {
+    background-color: var(--color-principal);
+    color: white;
+    font-weight: 600;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f5ff;
+}
+
+/* ============================================================
+   7. BOTONES PERSONALIZADOS
+   ============================================================ */
+.btn-info {
+    background-color: var(--color-info);
+    border-color: var(--color-info);
+}
+
+.btn-success {
+    background-color: var(--color-exito);
+    border-color: var(--color-exito);
+}
+
+.btn-danger {
+    background-color: var(--color-peligro);
+    border-color: var(--color-peligro);
+}
+
+/* ============================================================
+   8. BADGES (ESTADO DE LIBROS)
+   ============================================================ */
+.badge {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+}
+
+/* ============================================================
+   9. FORMULARIOS (CREATE DE LIBROS)
+   ============================================================ */
+form .form-label {
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+/* ============================================================
+   10. ESTILOS DE LIBROS (IMÁGENES Y CARDS)
+   ============================================================ */
 .img-libro {
     width: 100%;
-    max-width: 140px; /* tamaño uniforme */
-    height: 180px; /* altura fija */
-    object-fit: contain; /* NO recorta, NO deforma, NO pixela */
+    max-width: 140px;
+    height: 180px;
+    object-fit: contain;
     background-color: #f8f9fa;
     padding: 8px;
     border-radius: 6px;
@@ -46,3 +129,101 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/* ============================================================
+   11. ESTILOS DE ABOUT (YA EXISTENTES)
+   ============================================================ */
+.about-header {
+    background: var(--color-principal);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 40px;
+}
+
+.about-container {
+    display: flex;
+    gap: 25px;
+    padding: 40px;
+}
+
+.about-content {
+    flex: 3;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.1);
+    transition: 0.3s;
+}
+
+    .about-content:hover {
+        transform: translateY(-5px);
+    }
+
+.about-info {
+    flex: 1;
+    background: #eef5ff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.team-section {
+    padding: 20px 40px;
+}
+
+    .team-section img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .team-section figcaption {
+        text-align: center;
+        margin-top: 10px;
+        color: gray;
+        font-style: italic;
+    }
+
+/* ============================================================
+   12. MEDIA QUERIES (RESPONSIVIDAD)
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* About */
+    .about-container {
+        flex-direction: column;
+    }
+
+    /* Tablas */
+    table {
+        font-size: 0.85rem;
+    }
+
+    /* Botones en móviles */
+    td .btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    /* Tarjetas responsivas para el listado de libros */
+    .table-responsive-card {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+        .table-responsive-card .card {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0px 2px 8px rgba(0,0,0,.05);
+        }
+
+            .table-responsive-card .card p {
+                margin: 4px 0;
+            }
+
+    .card p strong {
+        color: var(--color-principal);
+    }
+}
+
