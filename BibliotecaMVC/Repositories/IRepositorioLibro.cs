@@ -7,4 +7,3 @@ namespace BibliotecaMVC.Repositories
         IEnumerable<Libro> ObtenerTodos();
     }
 }
-

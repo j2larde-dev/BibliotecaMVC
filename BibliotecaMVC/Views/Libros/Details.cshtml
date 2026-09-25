@@ -1,21 +1,58 @@
-﻿
-@model BibliotecaMVC.Models.Libro
+﻿@model BibliotecaMVC.Models.Libro
 
-<section class="container mt-4">
-    <h2 class="text-primary mb-4">Detalle del Libro</h2>
+@{
+    ViewData["Title"] = "Detalles del Libro";
+}
 
-    <div class="card shadow-sm p-4">
-        <p><strong>ID:</strong> @Model.ID</p>
-        <p><strong>Título:</strong> @Model.Titulo</p>
-        <p><strong>Autor:</strong> @Model.Autor</p>
-        <p><strong>Categoría:</strong> @Model.Categoria</p>
-        <p><strong>Precio:</strong> $@Model.Precio</p>
-        <p><strong>Disponible:</strong>
-            <span class="badge @(Model.Disponible ? "bg-success" : "bg-danger")">
-                @(Model.Disponible ? "Disponible" : "Prestado")
-            </span>
-        </p>
+<div class="card shadow-sm">
+    <div class="card-body">
+
+        <!-- Título del libro -->
+        <h2 class="card-title">@Model.Titulo</h2>
+
+        <!-- Autor del libro -->
+        <h6 class="card-subtitle mb-3 text-muted">@Model.Autor</h6>
+
+        <!-- Información del libro -->
+        <dl class="row">
+
+            <dt class="col-sm-4">Categoría</dt>
+            <dd class="col-sm-8">@Model.Categoria</dd>
+
+            <dt class="col-sm-4">Precio</dt>
+            <dd class="col-sm-8">$@Model.Precio</dd>
+
+            <dt class="col-sm-4">Estado</dt>
+            <dd class="col-sm-8">@(Model.Disponible ? "Disponible" : "Prestado")</dd>
+
+        </dl>
+
+        <!-- Botones de acción -->
+        <div class="d-flex gap-2">
+
+            <a class="btn btn-outline-secondary swal-edit-link"
+               asp-action="Edit"
+               asp-route-id="@Model.ID">
+                Editar
+            </a>
+
+            <form asp-action="Delete"
+                  asp-route-id="@Model.ID"
+                  method="post"
+                  class="swal-delete-form d-inline">
+
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-danger">
+                    Eliminar
+                </button>
+            </form>
+
+            <a asp-action="Index" class="btn btn-primary ms-auto">
+                Volver al listado
+            </a>
+
+        </div>
+
     </div>
-
-    <a asp-action="Index" class="btn btn-secondary mt-3">Regresar</a>
-</section>
+</div>

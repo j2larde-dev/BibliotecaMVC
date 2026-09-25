@@ -1,0 +1,50 @@
+﻿@model BibliotecaMVC.Models.Libro
+
+@{
+    ViewData["Title"] = "Editar Libro";
+}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h2 class="card-title">@ViewData["Title"]</h2>
+
+        <form asp-action="Edit" method="post" class="swal-save-form">
+            <input asp-for="ID" type="hidden" />
+
+            <div class="mb-3">
+                <label asp-for="Titulo" class="form-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Autor" class="form-label"></label>
+                <input asp-for="Autor" class="form-control" />
+                <span asp-validation-for="Autor" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Categoria" class="form-label"></label>
+                <input asp-for="Categoria" class="form-control" />
+                <span asp-validation-for="Categoria" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Precio" class="form-label"></label>
+                <input asp-for="Precio" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Disponible" class="form-label"></label>
+                <select asp-for="Disponible" class="form-select">
+                    <option value="true">Disponible</option>
+                    <option value="false">Prestado</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Guardar cambios</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
