@@ -2,6 +2,7 @@ using BibliotecaMVC.Repositories;
 using BibliotecaMVC.Data;
 using BibliotecaMVC.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,15 @@ builder.Services.AddDbContext<BibliotecaContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("BibliotecaDB"))
     );
+
+// Identity: usuarios + roles
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<BibliotecaContext>();
+
+// Configuración de cookie de autenticación
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+});
 
 var app = builder.Build();
 

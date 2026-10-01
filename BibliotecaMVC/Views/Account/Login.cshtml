@@ -1,0 +1,84 @@
+﻿@model BibliotecaMVC.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Ingreso a BibliotecaMVC";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-8 col-md-6 col-lg-5">
+
+            <!-- CARD MEJORADA -->
+            <div class="card shadow-lg border border-secondary-subtle rounded-4">
+
+                <!-- 1. ENCABEZADO CON COLOR MÁS SUAVE -->
+                <div class="card-header bg-info text-white py-3 rounded-top-4">
+                    <h4 class="mb-0 text-center">Iniciar sesión</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <form asp-action="Login" method="post">
+                        <input type="hidden" asp-for="ReturnUrl" />
+
+                        <!-- ALERTA DE ERRORES -->
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <!-- 3. ÍCONO DE USUARIO / EMAIL -->
+                        <div class="mb-3">
+                            <label asp-for="UserNameOrEmail" class="form-label fw-semibold"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-person-fill"></i>
+                                </span>
+                                <input asp-for="UserNameOrEmail"
+                                       class="form-control"
+                                       autocomplete="username"
+                                       placeholder="Ingrese su usuario o correo" />
+                            </div>
+                            <span asp-validation-for="UserNameOrEmail" class="text-danger"></span>
+                        </div>
+
+                        <!-- 3. ÍCONO DE CONTRASEÑA -->
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label fw-semibold"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="bi bi-lock-fill"></i>
+                                </span>
+                                <input asp-for="Password"
+                                       class="form-control"
+                                       autocomplete="current-password"
+                                       placeholder="Ingrese su contraseña" />
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <!-- RECORDARME -->
+                        <div class="form-check mb-3">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label asp-for="RememberMe" class="form-check-label fw-semibold"></label>
+                        </div>
+
+                        <!-- 2. BOTÓN MÁS PEQUEÑO Y ALINEADO A LA IZQUIERDA -->
+                        <div class="text-start">
+                            <button type="submit" class="btn btn-success px-4">Ingresar</button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="card-footer text-muted text-center rounded-bottom-4">
+                    <small>
+                        Use sus credenciales registradas para acceder a BibliotecaMVC.
+                    </small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
