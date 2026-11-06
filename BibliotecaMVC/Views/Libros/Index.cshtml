@@ -8,13 +8,36 @@
     ViewData["Title"] = "Libros";
 }
 
+<!-- PANEL DE ESTADO SEGÚN ROL -->
+<div class="alert alert-info d-flex align-items-center gap-2 shadow-sm">
+    <i class="bi bi-shield-lock fs-4"></i>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <span><strong>Rol:</strong> Administrador — acceso total al módulo Libros.</span>
+    }
+    else if (User.IsInRole("Bibliotecario"))
+    {
+        <span><strong>Rol:</strong> Bibliotecario — puedes crear, editar y eliminar libros.</span>
+    }
+    else
+    {
+        <span><strong>Rol:</strong> Usuario — solo puedes consultar información.</span>
+    }
+</div>
+
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="h3 mb-0">
         @ViewData["Title"]
         <small class="text-muted">(@Model.Count())</small>
     </h1>
 
-    <a class="btn btn-primary" asp-action="Create">Nuevo Libro +</a>
+    @if (User.IsInRole("Admin") || User.IsInRole("Bibliotecario"))
+    {
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Crear nuevo libro</a>
+        </p>
+    }
 </div>
 
 <!-- ============================
@@ -52,23 +75,26 @@
                             Detalles
                         </a>
 
-                        <a class="btn btn-outline-secondary btn-sm swal-edit-link"
-                           asp-action="Edit"
-                           asp-route-id="@libro.ID">
-                            Editar
-                        </a>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Bibliotecario"))
+                        {
+                            <a class="btn btn-outline-secondary btn-sm swal-edit-link"
+                               asp-action="Edit"
+                               asp-route-id="@libro.ID">
+                                Editar
+                            </a>
 
-                        <form asp-action="Delete"
-                              asp-route-id="@libro.ID"
-                              method="post"
-                              class="swal-delete-form d-inline">
+                            <form asp-action="Delete"
+                                  asp-route-id="@libro.ID"
+                                  method="post"
+                                  class="swal-delete-form d-inline">
 
-                            @Html.AntiForgeryToken()
+                                @Html.AntiForgeryToken()
 
-                            <button type="submit" class="btn btn-danger btn-sm">
-                                Eliminar
-                            </button>
-                        </form>
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    Eliminar
+                                </button>
+                            </form>
+                        }
                     </td>
                 </tr>
             }
@@ -98,12 +124,17 @@
                     Detalles
                 </a>
 
+                @if (User.IsInRole("Admin") || User.IsInRole("Bibliotecario"))
+                {
                 <a class="btn btn-outline-secondary btn-sm swal-edit-link"
                    asp-action="Edit"
                    asp-route-id="@libro.ID">
                     Editar
                 </a>
+                }
 
+                @if (User.IsInRole("Admin") || User.IsInRole("Bibliotecario"))
+                {
                 <form asp-action="Delete"
                       asp-route-id="@libro.ID"
                       method="post"
@@ -115,6 +146,9 @@
                         Eliminar
                     </button>
                 </form>
+                }
+
+
             </div>
         </div>
     }
